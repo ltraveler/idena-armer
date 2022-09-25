@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="IDENA ARMer Bash Скрипт - быстрый способ установить ноду Идена (idena-go) на телефон или другой устройство Android" src="https://raw.githubusercontent.com/ltraveler/ltraveler/main/images/IDENA_ARMer_400.png"/><br/>
+  <img alt="IDENA ARMer Bash Скрипт - быстрый способ установить ноду Идена (idena-go) на телефон или другой устройство Android" src="https://raw.githubusercontent.com/ltraveler/ltraveler/main/images/IDENA_ARMer_400_ru.png"/><br/>
   🦾 IDENA ARMer — Установка, запуск, настройка и обновление ноды ИДЕНА, <span style="font-size: 95%; color: gray;">на мобильном устройстве или телефоне Android с архитектурой ARM64</span>
 </h1>
 
