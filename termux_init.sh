@@ -22,6 +22,13 @@ pkg install nano -y
 passwd
 sshd
 mkdir -p /data/data/com.termux/files/home/.termux/boot
+
+cd /data/data/com.termux/files/home/.termux/boot
+wget -O start-sshd https://raw.githubusercontent.com/ltraveler/idena-armer/master/.termux/boot/start-sshd
+wget -O start-trmx https://raw.githubusercontent.com/ltraveler/idena-armer/master/.termux/boot/start-trmx
+wget -O start-tserv https://raw.githubusercontent.com/ltraveler/idena-armer/master/.termux/boot/start-tserv
+chmod +x *
+
 ifconfig
 echo -e "${LRED}Please save your IP address. ${LYELLOW}Your port number for ${LRED}SSH${LYELLOW} has been set to ${LRED}8022${LYELLOW}. Keep ${LRED}username${LYELLOW} field empty and use the previously set ${LRED}password${LYELLOW} to log in via ${LRED}SSH.\n${LRED}Press any key to continue...${NC}"
 read -p
