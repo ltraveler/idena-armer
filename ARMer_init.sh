@@ -113,28 +113,28 @@ done
 #System curtain-raiser
 
 cd $ARMER_DIR/armer/ 
-envsubst < idena > /etc/init.d/idena
+envsubst < idena >| /etc/init.d/idena
 chmod +x /etc/init.d/idena
 update-rc.d idena defaults
 
 #Measure thrice and cut once
-tail --lines=+2 idena_bash.sh | envsubst > idenabash.tmp 
+tail --lines=+2 idena_bash.sh | envsubst >| idenabash.tmp 
 awk 'FNR == NR { lines[$0] = 1; next } ! ($0 in lines) {print}' /root/.bashrc idenabash.tmp | sponge -a /root/.bashrc
+rm idenabash.tmp 
 #
 #idenachain.db health check
 mkdir /home/$username/scripts
-cd /home/$username/scripts
-envsubst < idena_selfcheck.sh > /home/$username/scripts/idena_selfcheck.sh
-envsubst < idena_removelogs.sh > /home/$username/scripts/idena_removelogs.sh
+envsubst < idena_selfcheck.sh >| /home/$username/scripts/idena_selfcheck.sh
+envsubst < idena_removelogs.sh >| /home/$username/scripts/idena_removelogs.sh
 chmod +x /home/$username/scripts/*.sh 
-crontab -u $username -l > idenacron
+cd /home/$username/scripts
+crontab -u $username -l >| idenacron
 #Particular error cases pre-check
 echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go stdout truncate
 echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
 crontab -u $username idenacron
 rm idenacron
-cd $ARMER_DIR/armer/
-rm -rf *.tmp
+cd $ARMER_DIR
 service idena start
 exit
