@@ -114,6 +114,7 @@ done
 
 cd $ARMER_DIR/armer/ 
 envsubst < idena > /etc/init.d/idena
+chmod +x /etc/init.d/idena
 update-rc.d idena defaults
 
 #Measure thrice and cut once
@@ -125,6 +126,7 @@ mkdir /home/$username/scripts
 cd /home/$username/scripts
 envsubst < idena_selfcheck.sh > /home/$username/scripts/idena_selfcheck.sh
 envsubst < idena_removelogs.sh > /home/$username/scripts/idena_removelogs.sh
+chmod +x /home/$username/scripts/*.sh 
 crontab -u $username -l > idenacron
 #Particular error cases pre-check
 echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
