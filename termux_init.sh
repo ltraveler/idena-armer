@@ -40,6 +40,6 @@ pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubuser
 
 touch /data/data/com.termux/files/home/.bashrc
 grep -q 'bash /data/data/com.termux/files/home/start-kali.sh' '/data/data/com.termux/files/home/.bashrc' || echo "bash /data/data/com.termux/files/home/start-kali.sh" >> /data/data/com.termux/files/home/.bashrc
-grep -q '# allow-external-apps = true' '/data/data/com.termux/files/home/.termux/termux.properties' || sed -i '/allow-external-apps/s/^#//g' /data/data/com.termux/files/home/.termux/termux.properties
+grep -q '# allow-external-apps = true' '/data/data/com.termux/files/home/.termux/termux.properties' | sed -i '/allow-external-apps/s/^#//g' /data/data/com.termux/files/home/.termux/termux.properties
 
 exit
