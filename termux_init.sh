@@ -31,7 +31,7 @@ chmod +x *
 
 cd /data/data/com.termux/files/home/
 
-ifconfig
+ifconfig | grep "inet " | awk -F'[: ]+' '{ print $3 }'
 echo -e "${LRED}Please save your IP address. ${LYELLOW}Your port number for ${LRED}SSH${LYELLOW} has been set to ${LRED}8022${LYELLOW}. Keep ${LRED}username${LYELLOW} field empty and use the previously set ${LRED}password${LYELLOW} to log in via ${LRED}SSH."
 printf "${LRED}Press any key to continue...${NC}"
 read ans
