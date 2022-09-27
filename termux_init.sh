@@ -29,9 +29,11 @@ wget -O start-trmx https://raw.githubusercontent.com/ltraveler/idena-armer/maste
 wget -O start-tserv https://raw.githubusercontent.com/ltraveler/idena-armer/master/.termux/boot/start-tserv
 chmod +x *
 
+cd /data/data/com.termux/files/home/
+
 ifconfig
 echo -e "${LRED}Please save your IP address. ${LYELLOW}Your port number for ${LRED}SSH${LYELLOW} has been set to ${LRED}8022${LYELLOW}. Keep ${LRED}username${LYELLOW} field empty and use the previously set ${LRED}password${LYELLOW} to log in via ${LRED}SSH.\n${LRED}Press any key to continue...${NC}"
-read -p
+read -p ""
 
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh
 
