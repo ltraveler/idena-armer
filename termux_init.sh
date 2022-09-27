@@ -32,7 +32,7 @@ chmod +x *
 cd /data/data/com.termux/files/home/
 
 ifconfig | grep "inet " | awk -F'[: ]+' '{ print $3 }'
-echo -e "${LRED}Please save your IP address. ${LYELLOW}Your port number for ${LRED}SSH${LYELLOW} has been set to ${LRED}8022${LYELLOW}. Keep ${LRED}username${LYELLOW} field empty and use the previously set ${LRED}password${LYELLOW} to log in via ${LRED}SSH."
+echo -e "${LRED}Please save your IP address from the above list. ${LYELLOW}Your port number for ${LRED}SSH${LYELLOW} has been set to ${LRED}8022${LYELLOW}.\nAfter establishing SSH connection, please keep ${LRED}username${LYELLOW} field empty and use the previously set ${LRED}password${LYELLOW} to login."
 printf "${LRED}Press any key to continue...${NC}"
 read ans
 
