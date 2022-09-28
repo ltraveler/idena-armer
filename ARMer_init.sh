@@ -37,7 +37,7 @@ echo -e "${LYELLOW}Please enter a ${LRED}username${NC} and ${LRED}password${LYEL
 while
 echo -e "${NC}Please do not use ${LGREEN}root${NC} as a username"
 read -p "Enter username : " username
-[[ $username = 'root' ]]
+[[ $username = 'root' ]] || [[ -z $username ]]
 do true; done
 
 #Some preliminary check
