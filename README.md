@@ -8,5 +8,5 @@
 
 ## 🚀&nbsp; Running `ARMer_init.sh` (requires root privileges)
 
-###The detailed installation guide has been published here:
+### The detailed installation guide has been published here:
 https://medium.com/@idna.project/b9229c010440
