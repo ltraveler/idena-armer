@@ -153,7 +153,9 @@ rm idenabash.tmp
 mkdir /home/$username/scripts
 envsubst < idena_selfcheck.sh >| /home/$username/scripts/idena_selfcheck.sh
 envsubst < idena_removelogs.sh >| /home/$username/scripts/idena_removelogs.sh
-chmod +x /home/$username/scripts/*.sh 
+# idena-go manual update
+cp ../armer_update.sh /home/$username/scripts/
+chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
 crontab -u $username -l >| idenacron
 #Particular error cases pre-check
