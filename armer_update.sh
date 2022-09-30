@@ -3,7 +3,6 @@ ARMER_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 username=$(echo "$ARMER_DIR" | awk -F\/ '{print $3}')
 if [ -d "/home/$username/idena-go" ] 
 then
-	cd /home/$username/idena-go/
 	service idena stop
 else
 	echo "Error: IDENA ARMer is not installed."
