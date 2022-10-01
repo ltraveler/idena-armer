@@ -155,6 +155,7 @@ envsubst < idena_selfcheck.sh >| /home/$username/scripts/idena_selfcheck.sh
 envsubst < idena_removelogs.sh >| /home/$username/scripts/idena_removelogs.sh
 # idena-go manual update
 cp ../armer_update.sh /home/$username/scripts/
+cp ../idena_scrchk.sh /home/$username/scripts/
 chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
 crontab -u $username -l >| idenacron
@@ -162,6 +163,8 @@ crontab -u $username -l >| idenacron
 echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go stdout truncate
 echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
+#idena-go daemon run check
+echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
 crontab -u $username idenacron
 rm idenacron
 cd $ARMER_DIR
