@@ -170,4 +170,10 @@ crontab -u root idenacron
 rm idenacron
 cd $ARMER_DIR
 service idena start
+# Installation has been successfully completed
+echo -e "${LRED}IDENA NODE HAS BEEN SUCCESSFULLY INSTALLED" 
+echo -e "${LGREEN}FOR IDENA DONATIONS:${NC} 0xf041640788910fc89a211cd5bcbf518f4f14d831"
+echo -e "${YELLOW}CONTACT AUTHOR:${NC} ltraveler@protonmail.com"
+echo -e "${LBLUE}IDENA PERSONALIZED SHARED NODE SERVICE:${NC} https://t.me/ltrvlr"
 exit
+
