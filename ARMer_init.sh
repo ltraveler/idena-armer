@@ -22,7 +22,7 @@ ARMER_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 apt update
 apt upgrade -y
 
-reqpkgs=('moreutils' 'original-awk' 'cron' 'procps' 'gettext' 'jq' 'gcc' 'sudo' 'git' 'curl' 'wget' 'nano' 'screen' 'psmisc' 'unzip' 'htop')
+reqpkgs=('moreutils' 'original-awk' 'cron' 'systemd-cron' 'procps' 'gettext' 'jq' 'gcc' 'sudo' 'git' 'curl' 'wget' 'nano' 'screen' 'psmisc' 'unzip' 'htop')
 for x in "${reqpkgs[@]}"; do
 dpkg -s "$x" &> /dev/null
 if [ $? != 0 ]; then
@@ -160,6 +160,7 @@ cp ../idena_scrchk.sh /home/$username/scripts/
 chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
 crontab -u root -l >| idenacron
+/etc/init.d/cron restart
 #Particular error cases pre-check
 echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go stdout truncate
