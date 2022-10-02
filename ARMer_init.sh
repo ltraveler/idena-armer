@@ -53,6 +53,7 @@ if id "$username" >/dev/null 2>&1; then
 	mkdir /home/$username/ARMer_backup/
 	cp -r --backup=t /home/$username/idena-go/datadir/api.key /home/$username/idena-go/datadir/keystore/nodekey /home/$username/ARMer_backup/ 
 	rm -rf /home/$username/idena-go
+	rm -f /etc/init.d/idena
 else
         echo "Creating a user $username..."
 	password="$username"
@@ -158,14 +159,14 @@ cp ../armer_update.sh /home/$username/scripts/
 cp ../idena_scrchk.sh /home/$username/scripts/
 chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
-crontab -u $username -l >| idenacron
+crontab -u root -l >| idenacron
 #Particular error cases pre-check
 echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go stdout truncate
 echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
 #idena-go daemon run check
 echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
-crontab -u $username idenacron
+crontab -u root idenacron
 rm idenacron
 cd $ARMER_DIR
 service idena start
