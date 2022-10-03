@@ -22,7 +22,7 @@ ARMER_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 apt update
 apt upgrade -y
 
-reqpkgs=('moreutils' 'original-awk' 'cron' 'systemd-cron' 'procps' 'gettext' 'jq' 'gcc' 'sudo' 'git' 'curl' 'wget' 'nano' 'screen' 'psmisc' 'unzip' 'htop')
+reqpkgs=('moreutils' 'original-awk' 'systemd-cron' 'cron' 'procps' 'gettext' 'jq' 'gcc' 'sudo' 'git' 'curl' 'wget' 'nano' 'screen' 'psmisc' 'unzip' 'htop')
 for x in "${reqpkgs[@]}"; do
 dpkg -s "$x" &> /dev/null
 if [ $? != 0 ]; then
