@@ -16,9 +16,11 @@ LCYAN="\033[1;36m"
 NC="\033[0m" # No Color
 
 pkg upgrade -y
+pkg install termux-services -y
 pkg install openssh -y
 pkg install wget -y
 pkg install nano -y
+pkg install cronie -y
 passwd
 sshd
 mkdir -p /data/data/com.termux/files/home/.termux/boot
