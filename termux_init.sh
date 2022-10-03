@@ -21,6 +21,7 @@ pkg install openssh -y
 pkg install wget -y
 pkg install nano -y
 pkg install cronie -y
+sv-enable crond
 passwd
 sshd
 mkdir -p /data/data/com.termux/files/home/.termux/boot
