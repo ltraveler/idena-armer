@@ -160,7 +160,6 @@ cp ./idena_scrchk.sh /home/$username/scripts/
 chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
 crontab -u root -l >| idenacron
-/etc/init.d/cron restart
 #Particular error cases pre-check
 echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go stdout truncate
@@ -169,6 +168,7 @@ echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
 echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
 crontab -u root idenacron
 rm idenacron
+/etc/init.d/cron restart
 cd $ARMER_DIR
 service idena start
 # Installation has been successfully completed
