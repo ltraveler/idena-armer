@@ -17,9 +17,9 @@ then
         if ! command -v go &> /dev/null
         then
                 echo "Compiling idena-go..."
-                wget -O go1.18.6.linux-arm64.tar.gz https://go.dev/dl/go1.18.6.linux-arm64.tar.gz
-                tar -xvf go1.18.6.linux-arm64.tar.gz
-                rm go1.18.6.linux-arm64.tar.gz
+                wget -O go1.17.13.linux-arm64.tar.gz https://go.dev/dl/go1.17.13.linux-arm64.tar.gz
+                tar -xvf go1.17.13.linux-arm64.tar.gz
+                rm go1.17.13.linux-arm64.tar.gz
                 fi
 
         GOROOT=/home/$username/idena-go/go
@@ -31,7 +31,6 @@ then
         tar -xzf v$gover.tar.gz && rm v$gover.tar.gz
         cd idena-go-$gover
 
-        go get github.com/lucas-clemente/quic-go@v0.26.0
         go build -ldflags "-X main.version=$gover" && chmod +x idena-go && cp -r idena-go /home/$username/idena-go/ && cd /home/$username/idena-go && rm -rf ./idena-go-$gover ./go
 	service idena start
 else
