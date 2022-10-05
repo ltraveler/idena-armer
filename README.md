@@ -8,13 +8,20 @@
 
 ## 🚀&nbsp; Summary
 1. Installing required software: **F-Droid**, **Termux**, **Termux:boot**.
-2. `termux-setup-storage` Giving to Termux required storage permission.
+2. `termux-setup-storage` - giving to Termux required storage permission.
 3. Adding **Termux** and **Termux:boot** to the Power Monitor exclusions.
-4. `pkg upgrade -y` Updating termux packages to the latest version.
-4. Downloading and running `termux_init.sh` script to prepare Termux terminal to host Kali Linux.
-5. `./start-kali.sh` Running Kali Linux.
-6. `ARMer_init.sh` idena-go configuration script.
-7. Reboot the phone.
+4. `pkg upgrade -y` - updating termux packages to the latest version.
+5. Downloading and running `termux_init.sh` script to prepare Termux terminal to host Kali Linux:
+```
+curl -O https://raw.githubusercontent.com/ltraveler/idena-armer/master/termux_init.sh
+chmod +x ./termux_init.sh && ./termux_init.sh
+```
+6. `./start-kali.sh` - running Kali Linux.
+7. `apt update && apt upgrade -y` - updating Kali Linux packages to the latest version.
+8. `apt install git -y` - installing git package.
+9. `git clone https://github.com/ltraveler/idena-armer.git` - cloning IDENA ARMer repository.
+10. `cd idena-armer && chmod +x ARMer_init.sh &&./ARMer_init.sh` - running IDENA ARMer and following the script's installation instructions.
+11. Reboot the phone.
 
 ## 📗&nbsp; The detailed installation guide has been published here:
 https://medium.com/@idna.project/b9229c010440
