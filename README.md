@@ -9,20 +9,21 @@
 ## 🚀&nbsp; Summary
 1. Installing **F-Droid** - an alternative app repository.
 2. From **F-Droid** installing **Termux** and **Termux:boot**.
-3. `termux-setup-storage` - giving to Termux required storage permission.
-4. Adding **Termux** and **Termux:boot** to the Power Monitor exclusions.
-5. `pkg upgrade -y` - updating termux packages to the latest version.
-6. Downloading and running `termux_init.sh` script to prepare Termux terminal to host Kali Linux:
+3. Running **Termux** and **Termux:boot** for the 1st time to make basic initialization process of those apps.
+4. `termux-setup-storage` - giving to Termux required storage permission.
+5. Adding **Termux** and **Termux:boot** to the Power Monitor exclusions.
+6. `pkg upgrade -y` - updating termux packages to the latest version.
+7. Downloading and running `termux_init.sh` script to prepare Termux terminal to host Kali Linux:
 ```
 curl -O https://raw.githubusercontent.com/ltraveler/idena-armer/master/termux_init.sh
 chmod +x ./termux_init.sh && ./termux_init.sh
 ```
-7. `./start-kali.sh` - running Kali Linux.
-8. `apt update && apt upgrade -y` - updating Kali Linux packages to the latest version.
-9. `apt install git -y` - installing git package.
-10. `git clone https://github.com/ltraveler/idena-armer.git` - cloning IDENA ARMer repository.
-11. `cd idena-armer && chmod +x ARMer_init.sh &&./ARMer_init.sh` - running IDENA ARMer and following the script's installation instructions.
-12. Reboot the phone.
+8. `./start-kali.sh` - running Kali Linux.
+9. `apt update && apt upgrade -y` - updating Kali Linux packages to the latest version.
+10. `apt install git -y` - installing git package.
+11. `git clone https://github.com/ltraveler/idena-armer.git` - cloning IDENA ARMer repository.
+12. `cd idena-armer && chmod +x ARMer_init.sh &&./ARMer_init.sh` - running IDENA ARMer and following the script's installation instructions.
+13. Reboot the phone.
 
 ## 📗&nbsp; The detailed installation guide has been published here:
 https://medium.com/@idna.project/b9229c010440
