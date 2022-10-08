@@ -111,7 +111,7 @@ until [ -s /home/$username/idena-go/datadir/keystore/nodekey ]
 do
      sleep 5
 done
-screen -S idena -X kill
+screen -S idena -X quit
 
 #Private rollback segment
 apikey=$( cat /home/$username/idena-go/datadir/api.key )
