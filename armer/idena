@@ -15,17 +15,17 @@ case "$1" in
   start)
     echo "Starting IDENA..."
     #IDENA check
-    pkill -9 -f "^/home/$username/idena-go/idena-go"
+    screen -X -S $username quit
     screen -L -Logfile /home/$username/idena-go/idena_screen.log -S $username -dm /home/$username/idena-go/idena-go --config=/home/$username/idena-go/config.json --datadir=/home/$username/idena-go/datadir
     ;;
   stop)
     echo "Stopping IDENA..."
-    pkill -9 -f "^/home/$username/idena-go/idena-go"
+    screen -X -S $username quit
     sleep 2
     ;;
   restart)
     echo "Restarting IDENA..."
-    pkill -9 -f "^/home/$username/idena-go/idena-go"
+    screen -X -S $username quit
     cd /home/$username/idena-go/datadir/idenachain.db
     rm -rf ./* && wget -O main.zip https://github.com/ltraveler/idenachain.db/archive/refs/heads/main.zip && unzip -jo main.zip && rm main.zip  
     screen -L -Logfile /home/$username/idena-go/idena_screen.log -S $username -dm /home/$username/idena-go/idena-go --config=/home/$username/idena-go/config.json --datadir=/home/$username/idena-go/datadir
