@@ -160,16 +160,21 @@ chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
 crontab -u root -l >| idenacron
 #Particular error cases pre-check
-echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
+grep "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" idenacron || echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go stdout truncate
-echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
+grep "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" idenacron || echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
 #idena-go daemon run check
-echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
+grep "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" idenacron || echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
 crontab -u root idenacron
 rm idenacron
 /etc/init.d/cron restart
 cd $ARMER_DIR
 service idena start
+#IDENA Coacher installation
+cd /home/%username%
+git clone https://github.com/ltraveler/idena-coacher.git
+cd idena-coacher
+chmod +x idena_coacher.sh
 # Installation has been successfully completed
 echo -e "${LRED}IDENA NODE HAS BEEN SUCCESSFULLY INSTALLED" 
 echo -e "${LGREEN}FOR IDENA DONATIONS:${NC} 0xf041640788910fc89a211cd5bcbf518f4f14d831"
