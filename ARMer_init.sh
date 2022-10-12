@@ -161,11 +161,11 @@ chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
 crontab -u root -l >| idenacron
 #Particular error cases pre-check
-grep "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" idenacron || echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
+grep "\*\/30 \* \* \* \* \/home\/$username\/scripts\/idena_selfcheck.sh" idenacron || echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go stdout truncate
-grep "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" idenacron || echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
+grep "\*\/78 \* \* \* \* \/home\/$username\/scripts\/idena_removelogs.sh" idenacron || echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
 #idena-go daemon run check
-grep "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" idenacron || echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
+grep "\*\/13 \* \* \* \* \/home\/$username\/scripts\/idena_scrchk.sh" idenacron || echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
 crontab -u root idenacron
 rm idenacron
 /etc/init.d/cron restart
