@@ -29,7 +29,7 @@ chmod +x ./termux_init.sh && ./termux_init.sh
 https://medium.com/@idna.project/b9229c010440
 
 ## 👀&nbsp; IDENA Coacher — Node Management Tool
-1. **IDENA ARMer** will set ***IDENA Coacher*** to manage your node.
+1. **IDENA ARMer** will set [**IDENA Coacher**](https://github.com/ltraveler/idena-coacher) to manage your node.
 2. It is placed in the home folder of the user that has been used to install idena.
 ```
 cd /home/%username%/idena-coacher
