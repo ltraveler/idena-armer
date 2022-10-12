@@ -42,6 +42,7 @@ chmod +x idena_coacher.sh
 ```
 ./idena_coacher.sh
 ```
+5. You should see the main window of the node management tool.
 
 <p align="center"><br>
   <img alt="Idena Coacher Node Monitor Tool" Title="IDENA Coacher - User Interface" src="https://raw.githubusercontent.com/ltraveler/ltraveler/main/images/IDENA_Coacher_Monitor_Tool_UI.jpg">
