@@ -172,6 +172,7 @@ cd $ARMER_DIR
 service idena start
 #IDENA Coacher installation
 cd /home/%username%
+rm -rf idena-coacher
 git clone https://github.com/ltraveler/idena-coacher.git
 cd idena-coacher
 chmod +x idena_coacher.sh
