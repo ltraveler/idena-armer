@@ -50,10 +50,14 @@ fi
 #If user exists we have to save our beans
 if id "$username" >/dev/null 2>&1; then
         echo "User $username exists. All keys are saved in ./armer_backup directory"
-	mkdir /home/$username/ARMer_backup/
+	mkdir -p /home/$username/ARMer_backup/
 	cp -r --backup=t /home/$username/idena-go/datadir/api.key /home/$username/idena-go/datadir/keystore/nodekey /home/$username/ARMer_backup/ 
 	rm -rf /home/$username/idena-go
+	rm -rf /home/$username/idena-coacher
+	rm -rf /home/$username/scripts
 	rm -f /etc/init.d/idena
+	crontab -l | grep -v 'idena_scrchk.sh' | crontab -
+	crontab -l | grep -v 'idena_selfcheck.sh' | crontab -
 else
         echo "Creating a user $username..."
 	password="$username"
@@ -150,7 +154,6 @@ awk 'FNR == NR { lines[$0] = 1; next } ! ($0 in lines) {print}' /root/.bashrc id
 rm idenabash.tmp 
 #
 #idenachain.db health check
-rm -rf /home/$username/scripts
 mkdir /home/$username/scripts
 envsubst < idena_selfcheck.sh >| /home/$username/scripts/idena_selfcheck.sh
 # idena-go manual update
@@ -160,9 +163,11 @@ chmod +x /home/$username/scripts/*.sh
 cd /home/$username/scripts
 crontab -u root -l >| idenacron
 #Particular error cases pre-check
-grep "\*\/30 \* \* \* \* \/home\/$username\/scripts\/idena_selfcheck.sh" idenacron || echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
+#grep "\*\/30 \* \* \* \* \/home\/$username\/scripts\/idena_selfcheck.sh" idenacron || echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
+echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
 #idena-go daemon run check
-grep "\*\/13 \* \* \* \* \/home\/$username\/scripts\/idena_scrchk.sh" idenacron || echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
+#grep "\*\/13 \* \* \* \* \/home\/$username\/scripts\/idena_scrchk.sh" idenacron || echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
+echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
 crontab -u root idenacron
 rm idenacron
 /etc/init.d/cron restart
@@ -170,7 +175,6 @@ cd $ARMER_DIR
 service idena start
 #IDENA Coacher installation
 cd /home/$username
-rm -rf idena-coacher
 git clone https://github.com/ltraveler/idena-coacher.git
 cd idena-coacher
 chmod +x idena_coacher.sh
