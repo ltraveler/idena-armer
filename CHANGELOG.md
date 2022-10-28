@@ -2,4 +2,4 @@
 
 ### Changes
 
-- First released stable version. If you have an older version, it is highly recommended remove Kali Linux and start over as it is described [here](https://medium.com/@idna.project/b9229c010440#cde3).
+- First released stable version. If you have an older version, it is highly recommended backup your private key, remove Kali Linux and start over as it is described [here](https://medium.com/@idna.project/b9229c010440#cde3).
