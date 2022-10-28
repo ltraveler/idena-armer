@@ -153,7 +153,6 @@ rm idenabash.tmp
 rm -rf /home/$username/scripts
 mkdir /home/$username/scripts
 envsubst < idena_selfcheck.sh >| /home/$username/scripts/idena_selfcheck.sh
-envsubst < idena_removelogs.sh >| /home/$username/scripts/idena_removelogs.sh
 # idena-go manual update
 cp ../armer_update.sh /home/$username/scripts/
 cp ./idena_scrchk.sh /home/$username/scripts/
@@ -162,8 +161,6 @@ cd /home/$username/scripts
 crontab -u root -l >| idenacron
 #Particular error cases pre-check
 grep "\*\/30 \* \* \* \* \/home\/$username\/scripts\/idena_selfcheck.sh" idenacron || echo "*/30 * * * * /home/$username/scripts/idena_selfcheck.sh" >> idenacron
-#idena-go stdout truncate
-grep "\*\/78 \* \* \* \* \/home\/$username\/scripts\/idena_removelogs.sh" idenacron || echo "*/78 * * * * /home/$username/scripts/idena_removelogs.sh" >> idenacron
 #idena-go daemon run check
 grep "\*\/13 \* \* \* \* \/home\/$username\/scripts\/idena_scrchk.sh" idenacron || echo "*/13 * * * * /home/$username/scripts/idena_scrchk.sh" >> idenacron
 crontab -u root idenacron
