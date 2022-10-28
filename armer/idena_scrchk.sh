@@ -1,9 +1,10 @@
-#!/usr/bin/bash
-ARMER_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-username=$(echo "$ARMER_DIR" | awk -F\/ '{print $3}')
-
-if ! screen -list | grep -q "$username"; then
-    echo "No idena-go service found. Restarting..."
-    service idena start
+#!/bin/bash
+ps -ef | grep -i idena-go | grep -v grep; scr=$?
+#
+if [ $scr -eq 0 ]; then
+        echo "idena-go service is already running..."
+else
+        echo "No idena-go service found. Restarting..."
+	/usr/sbin/service idena start
 fi
 
