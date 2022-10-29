@@ -1,3 +1,9 @@
+## 0.1.4 (Oct 29, 2022)
+
+### Bugfix
+
+- Self-checking script have had the wrong call to rebuild `idenachain.db`.
+
 ## 0.1.3 (Oct 28, 2022)
 
 ### Changes
