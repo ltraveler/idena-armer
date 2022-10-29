@@ -25,6 +25,13 @@ chmod +x ./termux_init.sh && ./termux_init.sh
 12. `cd idena-armer && chmod +x ARMer_init.sh &&./ARMer_init.sh` - running IDENA ARMer and following the script's installation instructions.
 13. Reboot the phone.
 
+## ⏳&nbsp; Update IDENA ARMer to the latest version:
+**_All commands must be run inside Kali Linux!_**
+1. `cd ~` - returning to the home directory.
+2. `rm -rf idena-armer` - removing previously cloned repository.
+3. `git clone https://github.com/ltraveler/idena-armer.git` - cloning latest IDENA ARMer repository.
+4. `cd idena-armer && chmod +x ARMer_init.sh &&./ARMer_init.sh` - running IDENA ARMer and installing idena-go node client with <i><b>the same username</b></i> that was used for the first-time installation.
+
 ## 📗&nbsp; The detailed installation guide has been published here:
 https://medium.com/@idna.project/b9229c010440
 
