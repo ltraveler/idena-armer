@@ -17,5 +17,5 @@ NC="\033[0m" # No Color
 
 chain_err=('Cannot transform consensus config' 'corrupted or incomplete')
 for x in "${chain_err[@]}"; do
-head /home/$username/idena-go/datadir/logs/output.log | grep -iwq "$x" && echo "It seems like ${LYELLOW}idenachain.db${NC} in trouble. The pattern: ${LRED}$x${NC} has been found." && service idena restart
+head /home/$username/idena-go/datadir/logs/output.log | grep -iwq "$x" && echo "It seems like ${LYELLOW}idenachain.db${NC} in trouble. The pattern: ${LRED}$x${NC} has been found." && /usr/sbin/service idena restart
 done
