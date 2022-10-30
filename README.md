@@ -33,7 +33,7 @@ chmod +x ./termux_init.sh && ./termux_init.sh
 4. `cd idena-armer && chmod +x ARMer_init.sh &&./ARMer_init.sh` - running IDENA ARMer and installing idena-go node client with <i><b>the same username</b></i> that was used for the first-time installation.
 
 ## 🐼&nbsp; Xiaomi devices based on MIUI
-<b><i>MIUI</i> battery usage optimization is extremely high</b>. As a result, termux application cannot being run continiously as background process. There is a strong probability that you would need to install a custom ROM. LineageOS is the best one so far for Xiaomi devices based on MIUI OS.
+<b>MIUI battery usage optimization is extremely high</b>. As a result, termux application cannot being run continiously as background process. There is a strong probability that you would need to install a custom ROM. LineageOS is the best one so far for Xiaomi devices based on MIUI OS.
 
 ## 📗&nbsp; The detailed installation guide has been published here:
 https://medium.com/@idna.project/b9229c010440
