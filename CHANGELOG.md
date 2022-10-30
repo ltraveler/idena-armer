@@ -1,3 +1,9 @@
+## 0.1.5 (Oct 29, 2022)
+
+### Changes
+
+- Additional protection layer has been added to prevent to start idena-go node client during the idena blockchain database rebuilding process.
+
 ## 0.1.4 (Oct 29, 2022)
 
 ### Bugfix
