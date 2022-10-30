@@ -55,6 +55,7 @@ if id "$username" >/dev/null 2>&1; then
 	rm -rf /home/$username/idena-go
 	rm -rf /home/$username/idena-coacher
 	rm -rf /home/$username/scripts
+	rm -rf /home/$username/flags
 	rm -f /etc/init.d/idena
 	crontab -l | grep -v 'idena_scrchk.sh' | crontab -
 	crontab -l | grep -v 'idena_selfcheck.sh' | crontab -
@@ -155,6 +156,7 @@ rm idenabash.tmp
 #
 #idenachain.db health check
 mkdir /home/$username/scripts
+mkdir -p /home/$username/flags
 envsubst < idena_selfcheck.sh >| /home/$username/scripts/idena_selfcheck.sh
 # idena-go manual update
 cp ../armer_update.sh /home/$username/scripts/

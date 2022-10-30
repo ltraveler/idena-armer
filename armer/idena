@@ -15,8 +15,13 @@ case "$1" in
   start)
     echo "Starting IDENA..."
     #IDENA check
+    if [ ! -f /home/$username/flags/chain_rebuild ]
+then  
     screen -X -S $username quit
     screen -S $username -dm /home/$username/idena-go/idena-go --config=/home/$username/idena-go/config.json --datadir=/home/$username/idena-go/datadir --logfilesize 6400
+else
+    echo "Can't start idena-go node client. Another process is rebuilding the blockchain database. If you believe that this is an error, please remove chain_rebuild flag file using the following command: rm /home/$username/flags/chain_rebuild"
+fi
     ;;
   stop)
     echo "Stopping IDENA..."
@@ -26,13 +31,15 @@ case "$1" in
   restart)
     echo "Restarting IDENA..."
     screen -X -S $username quit
+    touch /home/$username/flags/chain_rebuild
     cd /home/$username/idena-go/datadir/idenachain.db
     rm -rf ./* && wget -O main.zip https://github.com/ltraveler/idenachain.db/archive/refs/heads/main.zip && unzip -jo main.zip && rm main.zip  
     screen -S $username -dm /home/$username/idena-go/idena-go --config=/home/$username/idena-go/config.json --datadir=/home/$username/idena-go/datadir --logfilesize 6400
+    rm /home/$username/flags/chain_rebuild
     sleep 2
     ;;
   *)
-    echo "Usage: /etc/init.d/idena {start|stop}"
+    echo "Usage: /etc/init.d/idena {start|stop|restart}"
     exit 1
     ;;
 esac
