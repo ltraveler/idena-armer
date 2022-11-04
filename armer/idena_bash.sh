@@ -5,3 +5,4 @@ if ! screen -ls | grep -q "$username"; then
     service idena start
 fi
 /etc/init.d/cron restart
+PATH=$PATH:/home/$username/idena-coacher
