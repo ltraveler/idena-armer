@@ -41,18 +41,11 @@ https://medium.com/@idna.project/b9229c010440
 ## 👀&nbsp; [IDENA Coacher](https://github.com/ltraveler/idena-coacher) — Node Management Tool
 1. **IDENA ARMer** will set **IDENA Coacher** to manage your node.
 2. It is placed in the home folder of the user that has been used to install idena.
+3. Run the script.
 ```
-cd /home/%username%/idena-coacher
+idena_coacher.sh
 ```
-3. Make script executable.
-```
-chmod +x idena_coacher.sh
-```
-4. Run the script.
-```
-./idena_coacher.sh
-```
-5. You should see the main window of the node management tool.
+4. You should see the main window of the node management tool.
 
 <p align="center"><br>
   <img alt="Idena Coacher Node Monitor Tool" Title="IDENA Coacher - User Interface" src="https://raw.githubusercontent.com/ltraveler/ltraveler/main/images/IDENA_Coacher_Monitor_Tool_UI.jpg">
