@@ -1,3 +1,9 @@
+## 0.1.6 (Nov 03, 2022)
+
+### Changes
+
+- IDENA Coacher home directory has been added to '$PATH'
+
 ## 0.1.5 (Oct 29, 2022)
 
 ### Changes
